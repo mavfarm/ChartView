@@ -19,6 +19,7 @@ public struct LineChartView: View {
     public var formSize:CGSize
     public var dropShadow: Bool
     public var valueSpecifier:String
+    public var graphShadow:Bool?
     
     @State private var touchLocation:CGPoint = .zero
     @State private var showIndicatorDot: Bool = false
@@ -40,12 +41,14 @@ public struct LineChartView: View {
                 form: CGSize? = ChartForm.medium,
                 rateValue: Int?,
                 dropShadow: Bool? = true,
+                graphShadow: Bool? = true,
                 valueSpecifier: String? = "%.1f") {
         
         self.data = ChartData(points: data)
         self.title = title
         self.legend = legend
         self.style = style
+        self.graphShadow = graphShadow
         self.darkModeStyle = style.darkModeStyle != nil ? style.darkModeStyle! : Styles.lineViewDarkMode
         self.formSize = form!
         frame = CGSize(width: self.formSize.width, height: self.formSize.height/2)
@@ -107,7 +110,7 @@ public struct LineChartView: View {
                          showIndicator: self.$showIndicatorDot,
                          minDataValue: .constant(nil),
                          maxDataValue: .constant(nil),
-                         showBackground: false,
+                         showBackground: self.graphShadow ?? true,
                          gradient: self.style.gradientColor
                     )
                 }

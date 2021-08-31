@@ -114,7 +114,7 @@ public struct LineChartView: View {
                          gradient: self.style.gradientColor
                     )
                 }
-                .frame(width: frame.width, height: frame.height)
+                .frame(width: frame.width, height: self.formSize.height * 0.8)
                 .offset(x: 0, y: 0)
             }.frame(width: self.formSize.width, height: self.formSize.height)
         }

@@ -111,11 +111,13 @@ public struct LineChartView: View {
                          minDataValue: .constant(nil),
                          maxDataValue: .constant(nil),
                          showBackground: self.graphShadow ?? true,
-                         gradient: self.style.gradientColor
+                         gradient: self.style.gradientColor,
+                         curvedLines: false
                     )
                 }
                 .frame(width: frame.width, height: self.formSize.height * 0.8)
                 .offset(x: 0, y: 0)
+
             }.frame(width: self.formSize.width, height: self.formSize.height)
         }
         .gesture(DragGesture()

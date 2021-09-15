@@ -31,7 +31,7 @@ public struct LineChartView: View {
             
         }
     }
-    var frame = CGSize(width: 180, height: 120)
+    var frame = CGSize(width: 180, height: 100)
     private var rateValue: Int?
     
     public init(data: [Double],
@@ -61,7 +61,7 @@ public struct LineChartView: View {
         ZStack(alignment: .center){
             RoundedRectangle(cornerRadius: 20)
                 .fill(self.colorScheme == .dark ? self.darkModeStyle.backgroundColor : self.style.backgroundColor)
-                .frame(width: frame.width, height: frame.height, alignment: .center)
+                .frame(width: formSize.width, height: formSize.height, alignment: .center)
                 .shadow(color: self.style.dropShadowColor, radius: self.dropShadow ? 8 : 0)
             VStack(alignment: .leading){
                 if(!self.showIndicatorDot){
@@ -97,7 +97,7 @@ public struct LineChartView: View {
                         Text("\(self.currentValue, specifier: self.valueSpecifier)")
                             .font(.system(size: 18, weight: .bold, design: .default))
                             .foregroundColor(.white)
-                            .offset(x: 0, y: 10)
+                            .offset(x: 0, y: 20)
                         Spacer()
                     }
                     .transition(.scale)
@@ -115,7 +115,7 @@ public struct LineChartView: View {
                          curvedLines: false
                     )
                 }
-                .frame(width: frame.width, height: self.formSize.height * 0.8)
+                .frame(width: frame.width, height: self.frame.height)
                 .offset(x: 0, y: 0)
 
             }.frame(width: self.formSize.width, height: self.formSize.height)

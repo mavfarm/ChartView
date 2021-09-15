@@ -65,32 +65,15 @@ public struct LineChartView: View {
                 .shadow(color: self.style.dropShadowColor, radius: self.dropShadow ? 8 : 0)
             VStack(alignment: .leading){
                 if(!self.showIndicatorDot){
-                    VStack(alignment: .leading, spacing: 8){
-                        Text(self.title)
-                            .font(.title)
-                            .bold()
-                            .foregroundColor(self.colorScheme == .dark ? self.darkModeStyle.textColor : self.style.textColor)
-                        if (self.legend != nil){
-                            Text(self.legend!)
-                                .font(.callout)
-                                .foregroundColor(self.colorScheme == .dark ? self.darkModeStyle.legendTextColor :self.style.legendTextColor)
-                        }
-                        HStack {
-                            
-                            if let rateValue = self.rateValue
-                            {
-                                if (rateValue ?? 0 >= 0){
-                                    Image(systemName: "arrow.up")
-                                }else{
-                                    Image(systemName: "arrow.down")
-                                }
-                                Text("\(rateValue)%")
-                            }
-                        }
+                    HStack{
+                        Spacer()
+                        Text(" ")
+                            .font(.system(size: 18, weight: .bold, design: .default))
+                            .foregroundColor(.white)
+                            .offset(x: 0, y: 20)
+                        Spacer()
                     }
-                    .transition(.opacity)
-                    .animation(.easeIn(duration: 0.1))
-                    .padding([.leading, .top])
+                    .transition(.scale)
                 }else{
                     HStack{
                         Spacer()

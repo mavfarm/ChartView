@@ -51,7 +51,7 @@ public struct LineChartView: View {
         self.graphShadow = graphShadow
         self.darkModeStyle = style.darkModeStyle != nil ? style.darkModeStyle! : Styles.lineViewDarkMode
         self.formSize = form!
-        frame = CGSize(width: self.formSize.width, height: self.formSize.height/2)
+        frame = CGSize(width: self.formSize.width, height: self.formSize.height * 0.8)
         self.dropShadow = dropShadow!
         self.valueSpecifier = valueSpecifier!
         self.rateValue = rateValue
@@ -61,7 +61,7 @@ public struct LineChartView: View {
         ZStack(alignment: .center){
             RoundedRectangle(cornerRadius: 20)
                 .fill(self.colorScheme == .dark ? self.darkModeStyle.backgroundColor : self.style.backgroundColor)
-                .frame(width: frame.width, height: 240, alignment: .center)
+                .frame(width: frame.width, height: frame.height, alignment: .center)
                 .shadow(color: self.style.dropShadowColor, radius: self.dropShadow ? 8 : 0)
             VStack(alignment: .leading){
                 if(!self.showIndicatorDot){
@@ -97,7 +97,7 @@ public struct LineChartView: View {
                         Text("\(self.currentValue, specifier: self.valueSpecifier)")
                             .font(.system(size: 18, weight: .bold, design: .default))
                             .foregroundColor(.white)
-                            .offset(x: 0, y: 30)
+                            .offset(x: 0, y: 10)
                         Spacer()
                     }
                     .transition(.scale)

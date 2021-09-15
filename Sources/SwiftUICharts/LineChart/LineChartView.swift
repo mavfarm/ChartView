@@ -67,7 +67,7 @@ public struct LineChartView: View {
                 if(!self.showIndicatorDot){
                     HStack{
                         Spacer()
-                        Text(" ")
+                        Text(title)
                             .font(.system(size: 18, weight: .bold, design: .default))
                             .foregroundColor(.white)
                             .offset(x: 0, y: 20)
